@@ -27,7 +27,7 @@ async function run() {
     await Promise.all(
       potions.map(potion => {
         return client.query(`
-                    INSERT INTO potions (potion, spell_level, owner_id)
+                    INSERT INTO potions (potion, spell_level, tasty, brand, owner_id)
                     VALUES ($1, $2, $3, $4, $5);
                 `,
         [potion.potion, potion.spell_level, potion.tasty, potion.brand, user.id]);
