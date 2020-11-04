@@ -94,62 +94,6 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('adds a single potion to the database and returns it', async() => {
-      const expectation = {
-        id: 5,
-        potion: 'swim',
-        spell_level: 7,
-        tasty: false,
-        brand: 'Water Brews',
-        owner_id: 1
-      };
-
-      const data = await fakeRequest(app)
-        .post('/potions')
-        .send({
-          potion: 'swim',
-          spell_level: 7,
-          tasty: false,
-          brand: 'Water Brews',
-          owner_id: 1
-        })
-        .expect('Content-Type', /json/)
-        .expect(200);
-
-      const allPotions = await fakeRequest(app)
-        .get('/potions')
-        .expect('Content-Type', /json/)
-        .expect(200);
-
-      expect(data.body).toEqual(expectation);
-      expect(allPotions.body.length).toEqual(5);
-    });
-
-    test.only('updates a single potion to the database and returns it', async() => {
-      const expectation = {
-        id: 1,
-        potion: 'swim faster',
-        spell_level: 75,
-        tasty: false,
-        brand: 'Water Brews',
-        owner_id: 1
-      };
-
-      const data = await fakeRequest(app)
-        .put('/potions/1')
-        .send({
-          potion: 'swim faster',
-          spell_level: 75,
-          tasty: false,
-          brand: 'Water Brews',
-          owner_id: 1
-        })
-        .expect('Content-Type', /json/)
-        .expect(200);
-
-      expect(data.body).toEqual(expectation);
-    });
-
     test('deletes a single potion from the database', async() => {
       const expectation = [
         {
@@ -200,6 +144,63 @@ describe('app routes', () => {
       expect(data.body).toEqual(deletedItem);
       expect(allPotions.body).toEqual(expectation);
     });
+
+    test('adds a single potion to the database and returns it', async() => {
+      const expectation = {
+        id: 5,
+        potion: 'swim',
+        spell_level: 7,
+        tasty: false,
+        brand: 'Water Brews',
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .post('/potions')
+        .send({
+          potion: 'swim',
+          spell_level: 7,
+          tasty: false,
+          brand: 'Water Brews',
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allPotions = await fakeRequest(app)
+        .get('/potions')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allPotions.body.length).toEqual(4);
+    });
+
+    test('updates a single potion to the database and returns it', async() => {
+      const expectation = {
+        id: 1,
+        potion: 'swim faster',
+        spell_level: 75,
+        tasty: false,
+        brand: 'Water Brews',
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .put('/potions/1')
+        .send({
+          potion: 'swim faster',
+          spell_level: 75,
+          tasty: false,
+          brand: 'Water Brews',
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
 
   });
   
