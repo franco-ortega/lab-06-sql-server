@@ -98,7 +98,7 @@ describe('app routes', () => {
 
     test.only('adds a single potion to the database and returns it', async() => {
       const expectation = {
-        id: 6,
+        id: 5,
         potion: 'swim',
         spell_level: 7,
         tasty: false,
@@ -119,12 +119,12 @@ describe('app routes', () => {
         .expect(200);
 
       const allPotions = await fakeRequest(app)
-        .get('/banjos')
+        .get('/potions')
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);
-      expect(allPotions.body.length).toEqual(4);
+      expect(allPotions.body.length).toEqual(5);
     });
 
 
