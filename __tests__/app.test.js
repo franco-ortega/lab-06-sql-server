@@ -94,6 +94,41 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+
+    test.only('adds a single potion to the database and returns it', async() => {
+      const expectation = {
+        id: 6,
+        potion: 'swim',
+        spell_level: 7,
+        tasty: false,
+        brand: 'Water Brews',
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .post('/potions')
+        .send({
+          potion: 'swim',
+          spell_level: 7,
+          tasty: false,
+          brand: 'Water Brews',
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allPotions = await fakeRequest(app)
+        .get('/banjos')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allPotions.body.length).toEqual(4);
+    });
+
+
+
   });
   
 });
