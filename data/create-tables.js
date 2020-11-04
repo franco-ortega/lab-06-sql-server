@@ -16,13 +16,17 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );
+                CREATE TABLE brands (
+                  id SERIAL PRIMARY KEY,
+                  name VARCHAR(256) NOT NULL
+              );
                 CREATE TABLE potions (
                     id SERIAL PRIMARY KEY NOT NULL,
                     potion VARCHAR(512) NOT NULL,
                     spell_level INTEGER NOT NULL,
                     tasty BOOLEAN NOT NULL,
-                    brand  VARCHAR(512) NOT NULL,
+                    brand_id  VARCHAR(512) NOT NULL REFERNCES brands(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
