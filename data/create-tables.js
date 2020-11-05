@@ -26,7 +26,7 @@ async function run() {
                     potion VARCHAR(512) NOT NULL,
                     spell_level INTEGER NOT NULL,
                     tasty BOOLEAN NOT NULL,
-                    brand_id  INTEGER NOT NULL REFERNCES brands(id),
+                    brand_id INTEGER NOT NULL REFERENCES brands(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
