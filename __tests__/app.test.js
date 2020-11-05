@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns potions', async() => {
+    test.only('GET: returns potions', async() => {
 
       const expectation = [
         {
@@ -68,7 +68,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test.only('returns a single potion', async() => {
+    test.only('GET: returns a single potion', async() => {
       const expectation = {
         id: 1,
         potion: 'heal',
@@ -84,7 +84,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('deletes a single potion from the database', async() => {
+    test('DELETE: deletes a single potion from the database', async() => {
       const expectation = [
         {
           id: 1,
@@ -135,7 +135,7 @@ describe('app routes', () => {
       expect(allPotions.body).toEqual(expectation);
     });
 
-    test('adds a single potion to the database and returns it', async() => {
+    test('POST: adds a single potion to the database and returns it', async() => {
       const expectation = {
         id: 5,
         potion: 'swim',
@@ -166,7 +166,7 @@ describe('app routes', () => {
       expect(allPotions.body.length).toEqual(4);
     });
 
-    test('updates a single potion to the database and returns it', async() => {
+    test('PUT: updates a single potion to the database and returns it', async() => {
       const expectation = {
         id: 1,
         potion: 'swim faster',
