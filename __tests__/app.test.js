@@ -31,40 +31,32 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns potions', async() => {
+    test.only('returns potions', async() => {
 
       const expectation = [
         {
-          id: 1,
-          potion: 'heal',
-          spell_level: 1,
-          tasty: true,
-          brand: 'Ismelda\'s Elixir\'s',
-          owner_id: 1
+          id: 3,
+          potion: 'fly',
+          spell_level: 5,
+          brand: 'Arkex Brews',
         },
         {
           id: 2,
           potion: 'sleep',
           spell_level: 3,
-          tasty: false,
           brand: 'Davan\'s Draughts',
-          owner_id: 1
         },
         {
-          id: 3,
-          potion: 'fly',
-          spell_level: 5,
-          tasty: true,
-          brand: 'Arkex Brews',
-          owner_id: 1
+          id: 1,
+          potion: 'heal',
+          spell_level: 1,
+          brand: 'Ismelda\'s Elixir\'s',
         },
         {
           id: 4,
           potion: 'eagle eyes',
           spell_level: 2,
-          tasty: false,
           brand: 'Wild Tonics',
-          owner_id: 1
         }
       ];
 
