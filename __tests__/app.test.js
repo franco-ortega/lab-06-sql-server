@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test.only('returns potions', async() => {
+    test('returns potions', async() => {
 
       const expectation = [
         {
@@ -68,14 +68,12 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('returns a single potion', async() => {
+    test.only('returns a single potion', async() => {
       const expectation = {
         id: 1,
         potion: 'heal',
         spell_level: 1,
-        tasty: true,
         brand: 'Ismelda\'s Elixir\'s',
-        owner_id: 1
       };
 
       const data = await fakeRequest(app)
