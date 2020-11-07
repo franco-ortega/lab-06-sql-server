@@ -38,24 +38,28 @@ describe('app routes', () => {
           id: 3,
           potion: 'fly',
           spell_level: 5,
+          tasty: true,
           brand: 'Arkex Brews',
         },
         {
           id: 2,
           potion: 'sleep',
           spell_level: 3,
+          tasty: false,
           brand: 'Davan\'s Draughts',
         },
         {
           id: 1,
           potion: 'heal',
           spell_level: 1,
+          tasty: true,
           brand: 'Ismelda\'s Elixir\'s',
         },
         {
           id: 4,
           potion: 'eagle eyes',
           spell_level: 2,
+          tasty: false,
           brand: 'Wild Tonics',
         }
       ];
@@ -73,6 +77,7 @@ describe('app routes', () => {
         id: 1,
         potion: 'heal',
         spell_level: 1,
+        tasty: true,
         brand: 'Ismelda\'s Elixir\'s',
       };
 
