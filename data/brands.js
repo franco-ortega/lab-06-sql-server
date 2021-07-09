@@ -10,5 +10,8 @@ module.exports = [
   },
   {
     name: 'Wild Tonics'
+  },
+  {
+    name: 'Garken Gulpers'
   }
 ];
